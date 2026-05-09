@@ -1,0 +1,34 @@
+[
+  {
+    "name": "卡坦島",
+    "players": "3-4",
+    "time": "60-120",
+    "style": "策略",
+    "complexity": "中等",
+    "description": "資源管理與貿易的經典策略遊戲。"
+  },
+  {
+    "name": "瘋狂農場",
+    "players": "2-6",
+    "time": "30-45",
+    "style": "派對",
+    "complexity": "簡單",
+    "description": "輕鬆有趣的卡牌遊戲，適合多人。"
+  },
+  {
+    "name": "Ticket to Ride",
+    "players": "2-5",
+    "time": "30-60",
+    "style": "策略",
+    "complexity": "簡單",
+    "description": "鐵路建設的策略遊戲。"
+  },
+  {
+    "name": "Codenames",
+    "players": "2-8",
+    "time": "15-30",
+    "style": "派對",
+    "complexity": "簡單",
+    "description": "團隊合作的猜詞遊戲。"
+  }
+]

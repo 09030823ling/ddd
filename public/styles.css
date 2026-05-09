@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== 認證頁面 ===== */
+#auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #667eea;
+  font-size: 2em;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.auth-form {
+  display: none;
+}
+
+.auth-form.active {
+  display: block;
+}
+
+.auth-form label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.auth-form small {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 主應用程序 ===== */
+#main-section {
+  display: flex;
+  height: 100vh;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.navbar h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#logout-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== 側邊欄 ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 70px;
+  width: 200px;
+  height: calc(100vh - 70px);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px 20px;
+  color: #333;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: all 0.3s;
+}
+
+.sidebar a:hover {
+  background: #f0f0f0;
+  color: #667eea;
+}
+
+.sidebar a.active {
+  background: #f0f0f0;
+  color: #667eea;
+  border-left-color: #667eea;
+}
+
+/* ===== 內容區域 ===== */
+.content {
+  margin-left: 200px;
+  margin-top: 70px;
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: #f5f5f5;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.page h2 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+}
+
+/* ===== 推薦表單 ===== */
+#recommendation-form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+#recommendation-form label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+#recommendation-form select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.3s;
+}
+
+#recommendation-form select:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+#recommendation-form button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 20px;
+}
+
+#recommendation-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== 推薦結果 ===== */
+#results {
+  margin-top: 30px;
+}
+
+#results > div {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+#results > div:hover {
+  transform: translateY(-5px);
+}
+
+#results h3 {
+  color: #667eea;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+#results p {
+  margin: 8px 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ===== 評分按鈕 ===== */
+.rating {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.rating label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+.rate-btn {
+  padding: 10px 15px;
+  margin: 5px;
+  background: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.rate-btn:hover {
+  background: #efefef;
+  border-color: #999;
+}
+
+.rate-btn.like:active {
+  background: #90EE90;
+  border-color: #45a049;
+}
+
+.rate-btn.normal:active {
+  background: #FFD700;
+  border-color: #FFA500;
+}
+
+.rate-btn.dislike:active {
+  background: #FFB6C6;
+  border-color: #FF1493;
+}
+
+/* ===== 遊玩紀錄頁面 ===== */
+#history-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ratings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.ratings-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.ratings-table th {
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.ratings-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.ratings-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.rating-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.rating-badge.rating-喜歡 {
+  background: #90EE90;
+  color: #333;
+}
+
+.rating-badge.rating-普通 {
+  background: #FFD700;
+  color: #333;
+}
+
+.rating-badge.rating-不喜歡 {
+  background: #FFB6C6;
+  color: #333;
+}
+
+.delete-btn {
+  padding: 8px 15px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ff5252;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 150px;
+  }
+
+  .content {
+    margin-left: 150px;
+  }
+
+  .navbar h1 {
+    font-size: 1.2em;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  #logout-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

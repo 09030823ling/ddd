@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>桌遊推薦系統</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 認證頁面 -->
+  <div id="auth-section">
+    <div class="auth-container">
+      <h1>桌遊推薦系統</h1>
+      <div class="auth-tabs">
+        <button class="tab-btn active" data-tab="login">登入</button>
+        <button class="tab-btn" data-tab="register">註冊</button>
+      </div>
+      
+      <!-- 登入表單 -->
+      <form id="login-form" class="auth-form active">
+        <label>
+          用戶名:
+          <input type="text" id="login-username" required>
+        </label>
+        <label>
+          密碼:
+          <input type="password" id="login-password" required>
+        </label>
+        <button type="submit">登入</button>
+      </form>
+
+      <!-- 註冊表單 -->
+      <form id="register-form" class="auth-form">
+        <label>
+          用戶名:
+          <input type="text" id="register-username" required placeholder="3-20個字，只能用英文、數字、底線">
+          <small>3-20個字，只能包含英文、數字和底線 (_)</small>
+        </label>
+        <label>
+          密碼:
+          <input type="password" id="register-password" required placeholder="至少6個字">
+          <small>至少6個字</small>
+        </label>
+        <label>
+          確認密碼:
+          <input type="password" id="register-password-confirm" required>
+        </label>
+        <button type="submit">註冊</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 主應用程序 -->
+  <div id="main-section" style="display: none;">
+    <!-- 導航欄 -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <h1>桌遊推薦系統</h1>
+      </div>
+      <div class="nav-right">
+        <span id="user-display">使用者: <strong id="username-display"></strong></span>
+        <button id="logout-btn">登出</button>
+      </div>
+    </nav>
+
+    <!-- 側邊菜單 -->
+    <div class="sidebar">
+      <ul>
+        <li><a href="#" data-page="recommend" class="page-link active">推薦系統</a></li>
+        <li><a href="#" data-page="history" class="page-link">遊玩紀錄</a></li>
+      </ul>
+    </div>
+
+    <!-- 內容區域 -->
+    <div class="content">
+      <!-- 推薦系統頁面 -->
+      <div id="recommend-page" class="page active">
+        <h2>桌遊推薦</h2>
+        <form id="recommendation-form">
+          <label>玩家人數:
+            <select id="players">
+              <option value="1-2">1-2人</option>
+              <option value="3-4">3-4人</option>
+              <option value="5+">5人以上</option>
+            </select>
+          </label>
+          <label>遊戲時間:
+            <select id="time">
+              <option value="30">30分鐘</option>
+              <option value="60">1小時</option>
+              <option value="120+">2小時以上</option>
+            </select>
+          </label>
+          <label>桌遊風格:
+            <select id="style">
+              <option value="策略">策略</option>
+              <option value="派對">派對</option>
+              <option value="家庭">家庭</option>
+            </select>
+          </label>
+          <label>複雜度:
+            <select id="complexity">
+              <option value="簡單">簡單</option>
+              <option value="中等">中等</option>
+              <option value="複雜">複雜</option>
+            </select>
+          </label>
+          <button type="submit">開始推薦</button>
+        </form>
+        <div id="results"></div>
+      </div>
+
+      <!-- 遊玩紀錄頁面 -->
+      <div id="history-page" class="page">
+        <h2>我的遊玩紀錄</h2>
+        <div id="history-content">
+          <p>載入中...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
